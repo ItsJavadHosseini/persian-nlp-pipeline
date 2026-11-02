@@ -17,3 +17,5 @@ artifacts/
 *.rar
 *.csv
 *.parquet
+reports/
+
