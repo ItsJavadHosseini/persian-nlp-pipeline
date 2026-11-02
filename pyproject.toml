@@ -1,10 +1,20 @@
-[project]
+.gitignore[project]
 name = "persian-nlp-pipeline"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "ipykernel",
+    "jupyter",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pandas>=3.1.0",
+    "polars>=2.1.0",
+    "pyarrow>=26.0.0",
+    "scikit-learn",
+    "seaborn>=0.13.2",
+]
 
 [project.scripts]
 persian-nlp-pipeline = "persian_nlp_pipeline:main"
@@ -12,3 +22,9 @@ persian-nlp-pipeline = "persian_nlp_pipeline:main"
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
