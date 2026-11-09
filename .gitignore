@@ -12,10 +12,31 @@ uv.lock
 .ipynb_checkpoints/
 
 # Data & Models (فایل‌های حجیم)
-data/
 artifacts/
 *.rar
 *.csv
 *.parquet
 reports/
 
+# Data — reproducible from raw, too large to commit
+data/raw/
+data/processed/
+data/splits/*.csv
+
+# But DO commit the manifest — it's small and needed for reproducibility
+!data/splits/split_manifest.json
+
+# Artifacts — small metadata can be committed, large models cannot
+artifacts/*.json
+artifacts/*.safetensors
+artifacts/*.bin
+artifacts/*.pt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

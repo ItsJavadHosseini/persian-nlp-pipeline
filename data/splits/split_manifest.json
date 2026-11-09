@@ -1,0 +1,65 @@
+{
+  "generated_at_utc": "2026-11-09T17:20:56.459259Z",
+  "seeds": {
+    "SPLIT_SEED": 2026,
+    "MASK_SEED": "digikala-semi-supervised-v1",
+    "MASK_RATE": 0.2
+  },
+  "rating_band": {
+    "thresholds": {
+      "low": "0 <= rate < 2.5",
+      "medium": "2.5 <= rate < 4.0",
+      "high": "4.0 <= rate <= 5.0",
+      "invalid": "rate missing or outside [0, 5]"
+    },
+    "ordinal_encoding": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "split_strategy": "product-grouped, stratified on per-product majority recommendation_status",
+  "split_fractions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "counts": {
+    "total_clean_rows": 6149834,
+    "products": 331512,
+    "train_products": 232057,
+    "val_products": 49727,
+    "test_products": 49728,
+    "train_supervised": 3578692,
+    "train_pseudo_unlabeled": 737731,
+    "validation": 913570,
+    "test": 919841,
+    "natural_unlabeled": 627763
+  },
+  "masking": {
+    "per_class": {
+      "no_idea": {
+        "total": 415723,
+        "masked": 83144,
+        "mask_ratio_actual": 0.199999
+      },
+      "not_recommended": {
+        "total": 351901,
+        "masked": 70380,
+        "mask_ratio_actual": 0.199999
+      },
+      "recommended": {
+        "total": 2921036,
+        "masked": 584207,
+        "mask_ratio_actual": 0.2
+      }
+    }
+  },
+  "files": {
+    "train_supervised": "data/splits/train_supervised.csv",
+    "train_pseudo_unlabeled": "data/splits/train_pseudo_unlabeled.csv",
+    "natural_unlabeled": "data/splits/natural_unlabeled.csv",
+    "validation": "data/splits/validation.csv",
+    "test": "data/splits/test.csv"
+  }
+}
