@@ -1,10 +1,11 @@
-.gitignore[project]
+[project]
 name = "persian-nlp-pipeline"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "hazm>=0.12.1",
     "ipykernel",
     "jupyter",
     "matplotlib>=3.11.2",
