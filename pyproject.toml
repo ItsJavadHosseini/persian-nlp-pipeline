@@ -5,6 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "fastapi>=0.165.0",
+    "gradio>=6.32.0",
     "hazm>=0.12.1",
     "ipykernel",
     "jupyter",
@@ -13,10 +15,13 @@ dependencies = [
     "pandas>=3.1.0",
     "polars>=2.1.0",
     "pyarrow>=26.0.0",
+    "python-multipart>=0.0.34",
+    "requests>=2.34.2",
     "scikit-learn",
     "seaborn>=0.13.2",
     "torch>=2.15.0",
     "transformers>=5.22.2",
+    "uvicorn[standard]>=0.54.0",
 ]
 
 [project.scripts]
