@@ -5,38 +5,21 @@ __pycache__/
 .venv/
 venv/
 
-# uv
-uv.lock
-
 # Jupyter Notebook
 .ipynb_checkpoints/
 
-# Data & Models (فایل‌های حجیم)
-artifacts/
+# Large data files
 *.rar
-*.csv
 *.parquet
-reports/
 
-# Data — reproducible from raw, too large to commit
+# Raw and processed datasets
 data/raw/
 data/processed/
 data/splits/*.csv
 
-# But DO commit the manifest — it's small and needed for reproducibility
+# Keep split manifest
 !data/splits/split_manifest.json
 
-# Artifacts — small metadata can be committed, large models cannot
-artifacts/*.json
-artifacts/*.safetensors
-artifacts/*.bin
-artifacts/*.pt
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-.ipynb_checkpoints/
-
-# OS
-.DS_Store
+# Model artifacts
+artifacts/
+*data_audit/
