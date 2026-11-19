@@ -1,0 +1,53 @@
+services:
+  api:
+    image: persian-nlp-pipeline:latest
+    container_name: persian-nlp-api
+
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+     UV_CACHE_DIR: /tmp/uv-cache-1000
+
+    command: >
+      uv run --no-sync uvicorn
+      persian_nlp_pipeline.api:app
+      --app-dir src
+      --host 0.0.0.0
+      --port 8000
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./artifacts/evaluation:/app/artifacts/evaluation
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 180s
+
+    restart: unless-stopped
+
+  frontend:
+    image: persian-nlp-pipeline:latest
+    container_name: persian-nlp-frontend
+
+    command: >
+      uv run --no-sync python frontend/app.py
+
+    ports:
+      - "7860:7860"
+
+    environment:
+      API_URL: http://api:8000
+
+    depends_on:
+      api:
+        condition: service_healthy
+
+    restart: unless-stopped
