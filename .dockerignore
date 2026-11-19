@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# Python
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+
+# Notebooks and datasets
+notebooks/
+data/
+reports/
+scripts/
+configs/
+
+# Large unnecessary artifacts
+artifacts/evaluation/
+artifacts/*.zip
+artifacts/*.joblib
+artifacts/*.json
+
+# Development files
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
